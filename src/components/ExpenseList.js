@@ -6,7 +6,7 @@ import ExpenseForm from './ExpenseForm';
 
 export default () => {
     const dispatch = useDispatch();
-    const expenses = useSelector(state => state.expensesReducer.expenses);
+    const expenses = useSelector(state => state.expensesSlice.expenses);
 
     useEffect(() => {
         GetExpenses(dispatch);
@@ -23,13 +23,13 @@ const ListRow = ({ expense }) => {
     const [isEditing, setIsEditing] = useState(false);
 
     return isEditing
-    ? <ExpenseForm expense={expense} setIsEditing={setIsEditing} />
-    : <div>
-        <Row>
-            <Col>{expense.description}</Col>
-            <Col>${expense.amount}</Col>
-            <Button variant="warning" onClick={() => setIsEditing(!isEditing)}>Edit</Button>
-        </Row>
-        <hr />
-    </div>
+        ? <ExpenseForm expense={expense} setIsEditing={setIsEditing} />
+        : <div>
+            <Row>
+                <Col>{expense.description}</Col>
+                <Col>${expense.amount}</Col>
+                <Button variant="warning" onClick={() => setIsEditing(!isEditing)}>Edit</Button>
+            </Row>
+            <hr />
+        </div>
 }

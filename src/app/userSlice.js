@@ -13,7 +13,6 @@ export const userSlice = createSlice({
         userAuthenticated: (state, action) => {
             return {
                 ...state, ...{
-                    username: action.payload.username,
                     token: action.payload.token,
                     isLoggedIn: true,
                 }

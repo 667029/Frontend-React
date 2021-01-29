@@ -2,7 +2,7 @@ import { userAuthenticated } from '../app/userSlice';
 import * as axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'https://localhost:44373/Authentication',
+    baseURL: `${process.env.REACT_APP_BASE_URL}/Authentication`,
 });
 
 export const SignUp = async (dispatch, credentials) => {

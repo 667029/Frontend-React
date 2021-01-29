@@ -3,7 +3,7 @@ import { Form, Row, Col, Button } from "react-bootstrap";
 import { EditExpense, NewExpense, DeleteExpense } from '../services/expenses';
 import { useDispatch } from 'react-redux';
 
-export default ({ expense, setIsEditing }) => {
+const ExpenseForm = ({ expense, setIsEditing }) => {
     const descriptions = ['Groceries', 'Credit Card', 'Student Loans', 'Eating out', 'Gas'];
     const [amount, setAmount] = useState(0);
     const [description, setDescription] = useState(descriptions[0]);
@@ -59,3 +59,5 @@ export default ({ expense, setIsEditing }) => {
         </Row>
     </Form>
 }
+
+export default ExpenseForm;

@@ -1,4 +1,4 @@
-import { userAuthenticated } from '../app/userSlice';
+import { userAuthenticated } from '../app/authenticationSlice';
 import * as axios from 'axios';
 
 const axiosInstance = axios.create({

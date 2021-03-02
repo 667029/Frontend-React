@@ -1,10 +1,10 @@
 import { Nav, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../app/userSlice';
+import { logout } from '../app/authenticationSlice';
 
 const Navbar = () => {
-    const { isLoggedIn } = useSelector(state => state.userSlice);
+    const { isLoggedIn } = useSelector(state => state.authenticationSlice);
     const dispatch = useDispatch();
 
     return <Nav className='navbar' style={{ backgroundColor: '#e4fff2' }}>

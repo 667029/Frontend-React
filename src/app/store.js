@@ -1,13 +1,12 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import userSlice from './userSlice';
+import authenticationSlice from './authenticationSlice';
 import expensesSlice from './expensesSlice';
 import ToastMiddleware from '../middlewares/ToastMiddleware';
-import AuthenticationMiddleware from '../middlewares/AuthenticationMiddleware';
 
 export default configureStore({
   reducer: {
-    userSlice: userSlice,
+    authenticationSlice: authenticationSlice,
     expensesSlice: expensesSlice,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(AuthenticationMiddleware, ToastMiddleware)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(ToastMiddleware)
 });

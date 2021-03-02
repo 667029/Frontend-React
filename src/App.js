@@ -5,10 +5,10 @@ import SignInPage from './components/SignInPage';
 import SignUpPage from './components/SignUpPage';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { userAuthenticated } from './app/userSlice';
+import { userAuthenticated } from './app/authenticationSlice';
 
 const App = () => {
-  const { isLoggedIn } = useSelector(state => state.userSlice);
+  const { isLoggedIn } = useSelector(state => state.authenticationSlice);
   const dispatch = useDispatch();
 
   useEffect(() => {

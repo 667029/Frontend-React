@@ -21,7 +21,7 @@ const App = () => {
   return <BrowserRouter>
     <Navbar />
     <Switch>
-      <Route exact path="/" render={() => (isLoggedIn ? <Route component={HomePage} /> : <SignInPage />)} />
+      <Route exact path="/" render={() => (isLoggedIn ? <HomePage /> : <SignInPage />)} />
       <Route path="/signup" render={() => (isLoggedIn ? <Redirect to='/' /> : <SignUpPage />)} />
       <Route path="/signin" render={() => (isLoggedIn ? <Redirect to='/' /> : <SignInPage />)} />
       <Route component={() => <h2>Page not found!</h2>} />

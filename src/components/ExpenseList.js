@@ -4,7 +4,7 @@ import { GetExpenses } from '../services/expenses';
 import { Button, Row, Col } from 'react-bootstrap';
 import ExpenseForm from './ExpenseForm';
 
-export default () => {
+const ExpenseList = () => {
     const dispatch = useDispatch();
     const expenses = useSelector(state => state.expensesSlice.expenses);
 
@@ -33,3 +33,5 @@ const ListRow = ({ expense }) => {
             <hr />
         </div>
 }
+
+export default ExpenseList;

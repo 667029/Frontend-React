@@ -1,11 +1,17 @@
-import { setExpenses, newExpense, editExpense, deleteExpense,
-setExpensesError, editExpenseError, newExpenseError, deleteExpenseError } 
-from '../app/expensesSlice';
+import {
+    setExpenses, newExpense, editExpense, deleteExpense,
+    setExpensesError, editExpenseError, newExpenseError, deleteExpenseError
+} from '../app/expensesSlice';
 import * as axios from 'axios';
 
-const axiosInstance = axios.create({
-    baseURL: 'https://localhost:44373/Expenses',
+const axiosInstance = axios.create({    
+    baseURL: `${process.env.REACT_APP_BASE_URL}/expenses`,
 })
+
+axiosInstance.interceptors.request.use((config) => {
+    config.headers = { authorization: 'Bearer ' + sessionStorage.getItem('token') };
+    return config;
+});
 
 export const GetExpenses = async (dispatch) => {
     try {
@@ -40,7 +46,6 @@ export const EditExpense = async (dispatch, expense) => {
 export const DeleteExpense = async (dispatch, expense) => {
     try {
         // api call
-        console.log('deleteing expense: ', expense);
         await axiosInstance.delete('', { data: { ...expense } });
         dispatch(deleteExpense(expense));
     } catch {

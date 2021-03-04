@@ -7,7 +7,7 @@ export const deleteExpenseError = createAction('deleteExpenseError');
 
 export const expensesSlice = createSlice({
     name: 'expenses',
-    initialState:{
+    initialState: {
         expenses: [],
     },
     reducers: {

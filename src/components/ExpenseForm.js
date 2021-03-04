@@ -3,7 +3,7 @@ import { Form, Row, Col, Button } from "react-bootstrap";
 import { EditExpense, NewExpense, DeleteExpense } from '../services/expenses';
 import { useDispatch } from 'react-redux';
 
-export default ({ expense, setIsEditing }) => {
+const ExpenseForm = ({ expense, setIsEditing }) => {
     const descriptions = ['Groceries', 'Credit Card', 'Student Loans', 'Eating out', 'Gas'];
     const [amount, setAmount] = useState(0);
     const [description, setDescription] = useState(descriptions[0]);
@@ -37,7 +37,7 @@ export default ({ expense, setIsEditing }) => {
                 <Form.Label>Description</Form.Label>
                 <Form.Control as='select'
                     onChange={event => setDescription(event.target.value)}>
-                    {descriptions.map(d => <option>{d}</option>)}
+                    {descriptions.map((d, idx) => <option key={idx}>{d}</option>)}
                 </Form.Control>
             </Col>
             <Col>
@@ -59,3 +59,5 @@ export default ({ expense, setIsEditing }) => {
         </Row>
     </Form>
 }
+
+export default ExpenseForm;
